@@ -68,8 +68,6 @@ typedef struct liststr
 
 typedef struct passinfo
 {
-	
-	
 	char *arg;
 	char **args;
 	char *path;
@@ -88,7 +86,6 @@ typedef struct passinfo
 	int _cmd_buff_type;
 	int read_fd;
 	int hist_count;
-	
 } info_t;
 
 /**
