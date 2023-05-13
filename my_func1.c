@@ -10,12 +10,12 @@ int inter_active(info_t *info)
 	return (isatty(STDIN_FILENO) && info->read_fd <= 2);
 }
 /**
- * _exit =>exits the shell.
+ * _exitt =>exits the shell.
  * @info: Structure containing potential arguments. Used to maintain constant function prototype.
  *  Return : exits with a given exit stat(0) if info.args[0] != "exit".
  */
 
-int _exit(info_t *info)
+int _exitt(info_t *info)
 {
 	int exitcheck;
 	if (info->args[1])

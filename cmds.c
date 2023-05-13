@@ -80,7 +80,7 @@ int _find_builtin(info_t *info)
 {
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
-		{"exit", _exit},
+		{"exit", _exitt},
 		{"env", _env},
 		{"help", _help},
 		{"history", _history},
