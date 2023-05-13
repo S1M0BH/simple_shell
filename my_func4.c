@@ -63,60 +63,43 @@ void rm_cmd(char *buf)
 }
 
 /**
- * input_buf =>buffers chained commands.
- * @info: parameter struct.
- * @buf: address of buffer.
- * @len: address of len var.
- * Return : bytes read.
+ * _get_hist =>gets the history file.
+ * @info: parameter struct
+ *
+ * Return : allocated string containg history file
  */
 
-ssize_t input_buf(info_t *info, char **buf, size_t *len)
+char *_get_hist(info_t *info)
 {
-	ssize_t r = 0;
-	size_t len_p = 0;
-
-	if (!*len)
-	{
-		free(*buf);
-		*buf = NULL;
-		signal(SIGINT, siginal_h);
-#if USE_GETLINE
-	r = getline(buf, &len_p, stdin);
-#else
-		r = _get_line(info, buf, &len_p);
-#endif
-		if (r > 0)
-		{
-			if ((*buf)[r - 1] == '\n')
-			{
-				(*buf)[r - 1] = '\0';
-				r--;
-			}
-			info->line_count_flag = 1;
-			rm_cmd(*buf);
-			_build_hist_list(info, *buf, info->hist_count++);
-			{
-				*len = r;
-				info->_cmd_buff = buf;
-			}
-		}
-	} return (r);
+	char *buf, *dir;
+	dir = _get_env(info, "HOME=");
+	if (!dir)
+		return (NULL);
+	buf = malloc(sizeof(char) * (_str_len(dir) + _str_len(HIST_FILE) + 2));
+	if (!buf)
+		return (NULL);
+	buf[0] = 0;
+	_str_cp(buf, dir);
+	_str_cat(buf, "/");
+	_str_cat(buf, HIST_FILE);
+	return (buf);
 }
 /**
- * read_buf =>reads a buffer.
- * @info: parameter struct.
- * @buf: buffer.
- * @i: size.
- * Return : r.
+ * _get_node_index =>gets the index of a node.
+ * @head: pointer to list head.
+ * @node: pointer to the node.
+ * Return : index of node or -1.
  */
 
-ssize_t read_buf(info_t *info, char *buf, size_t *i)
+ssize_t _get_node_index(list_t *head, list_t *node)
 {
-	ssize_t r = 0;
-	if (*i)
-		return (0);
-	r = read(info->read_fd, buf, READ_BUF_SIZE);
-	if (r >= 0)
-		*i = r;
-	return (r);
+	size_t i = 0;
+	while (head)
+	{
+		if (head == node)
+			return (i);
+		head = head->next;
+		i++;
+	}
+	return (-1);
 }
