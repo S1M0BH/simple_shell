@@ -93,7 +93,6 @@ char *_strn_cp(char *de, char *src, int n)
 char *_strn_cat(char *de, char *src, int n)
 {
 	int i;
-	
 	int j;
 
 	i = _str_len(de);

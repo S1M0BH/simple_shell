@@ -41,6 +41,5 @@ int main(int ac, char **av)
 	read_hist(inf);
 
 	loop_shell(inf, av);
-	
 	return (EXIT_SUCCESS);
 }
