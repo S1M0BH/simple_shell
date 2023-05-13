@@ -46,6 +46,4 @@ int read_hist(info_t *info)
 		_delete_node(&(info->history), 0);
 	_renumber_hist(info);
 	return (info->hist_count);
-
-	
 }
