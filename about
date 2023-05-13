@@ -1,0 +1,35 @@
+SH NAME
+B simple_shell
+- Simple shell create in C to interact with a linux operating system.
+
+SH DESCRIPTION
+
+Shell is a UNIX term for an interactive user interface with an operating system. The shell is the programmatic layer  that 
+ understands  and executes commands entered by the user. On some systems, the shell is called the command interpreter.
+
+The simple shell is a command that reads lines from  a file or  terminal, interprets them, and usually executes other commands. This is a program that runs when a user logs into the system. It contains many features to facilitate interactive use and has the advantage that the interpreter language is the same for interactive and non-interactive  (shell script) applications. This means that commands can be typed directly into a simple running shell, or placed in a file that can be run directly from a  simple shell.
+
+Always 0 for success, other number means failure.
+
+.SH PATH
+
+It will look inside al directions in PATH env variable for executable.
+
+SH
+
+SH OPTIONS
+B simple_shell
+Command options will be typed after the main command followed by a space and a
+ '-' symbol.
+
+SH EXAMPLE
+
+[command] [options]
+$ ls -l
+
+SH BUGS
+Single space required after argument.
+
+
+SH AUTHORS
+Mohamed Bchiri / Aya Lotfi
