@@ -47,4 +47,5 @@ Execution Flow:
     
     *   Go back to step 3 and repeat the process to handle the next command.
     
-    *   By following this execution flow, the shell program can effectively handle user commands, execute built-in functionalities, and execute external commands found in the system's PATH.
+    *   By following this execution flow, the shell program can effectively handle user commands,
+	execute built-in functionalities, and execute external commands found in the system's PATH.
