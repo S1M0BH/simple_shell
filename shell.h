@@ -177,6 +177,9 @@ list_t *_node_starts(list_t *, char *, char);
 ssize_t _get_node_index(list_t *, list_t *);
 int my_chain(info_t *, char *, size_t *);
 void _check_chain(info_t *, char *, size_t *, size_t, size_t);
+ssize_t input_buf(info_t *info, char **buf, size_t *len);
+ssize_t read_buf(info_t *info, char *buf, size_t *i);
+
 
 
 
